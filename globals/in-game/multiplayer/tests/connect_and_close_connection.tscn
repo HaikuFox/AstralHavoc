@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8q8i7gihbdgh"]
+
+[ext_resource type="Script" path="res://components/multiplayer/tests/scripts/create_server_button.gd" id="1_8qypj"]
+[ext_resource type="Script" path="res://components/multiplayer/tests/scripts/create_client_button.gd" id="2_4acb4"]
+[ext_resource type="Script" path="res://components/multiplayer/tests/scripts/quit_button.gd" id="3_puaq5"]
+
+[node name="ConnectAndCloseConnection" type="VBoxContainer"]
+custom_minimum_size = Vector2(400, 230)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -22.0
+offset_right = 4.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TypeLabel" type="Label" parent="."]
+layout_mode = 2
+
+[node name="CreateServerButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Create Server"
+script = ExtResource("1_8qypj")
+
+[node name="CreateClientButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Create Client"
+script = ExtResource("2_4acb4")
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+script = ExtResource("3_puaq5")
+
+[connection signal="pressed" from="CreateServerButton" to="CreateServerButton" method="_on_pressed"]
+[connection signal="pressed" from="CreateClientButton" to="CreateClientButton" method="_on_pressed"]
+[connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_pressed"]

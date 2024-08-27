@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dihg3s8sm6lku"]
+[gd_scene load_steps=7 format=3 uid="uid://dihg3s8sm6lku"]
 
 [ext_resource type="Shader" path="res://assets/shaders/noize.gdshader" id="1_jicpn"]
 [ext_resource type="Shader" path="res://assets/shaders/vignette.gdshader" id="2_ekesx"]
+[ext_resource type="Script" path="res://components/ui/main_menu/start_button.gd" id="3_p1dam"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ueghp"]
 shader = ExtResource("1_jicpn")
@@ -18,6 +19,7 @@ shader_parameter/vignette_color = null
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e42uy"]
 
 [node name="MainMenu" type="Control"]
+z_index = -1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -232,6 +234,7 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/focus = SubResource("StyleBoxEmpty_e42uy")
 text = "START"
 flat = true
+script = ExtResource("3_p1dam")
 
 [node name="SettingsButton" type="Button" parent="ButtonsVBox"]
 layout_mode = 2
@@ -256,3 +259,5 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/focus = SubResource("StyleBoxEmpty_e42uy")
 text = "QUIT"
 flat = true
+
+[connection signal="pressed" from="ButtonsVBox/StartButton" to="ButtonsVBox/StartButton" method="_on_pressed"]

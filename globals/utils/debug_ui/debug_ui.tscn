@@ -1,0 +1,101 @@
+[gd_scene load_steps=14 format=3 uid="uid://bvdybo8ndfrln"]
+
+[ext_resource type="Script" path="res://components/debug/debug_ui/scripts/dynamic_info/current_fps_label.gd" id="1_jh2ml"]
+[ext_resource type="LabelSettings" uid="uid://dqvmxooaeero" path="res://components/debug/debug_ui/assets/label_settings.tres" id="1_mb4ku"]
+[ext_resource type="Script" path="res://components/debug/debug_ui/scripts/debug_ui.gd" id="1_udjmc"]
+[ext_resource type="Script" path="res://components/debug/debug_ui/scripts/static_info/game_title_and_version_label.gd" id="1_ydlyj"]
+[ext_resource type="Script" path="res://components/debug/debug_ui/scripts/static_info/engine_version_label.gd" id="2_qnhfu"]
+[ext_resource type="Script" path="res://components/debug/debug_ui/scripts/dynamic_info/total_frames_label.gd" id="2_ybne4"]
+[ext_resource type="Script" path="res://components/debug/debug_ui/scripts/dynamic_info/current_delta_label.gd" id="3_b4yu7"]
+[ext_resource type="Script" path="res://components/debug/debug_ui/scripts/dynamic_info/total_primitives_label.gd" id="4_qpk38"]
+[ext_resource type="Script" path="res://components/debug/debug_ui/scripts/static_info/cpu_name_label.gd" id="4_r3o6n"]
+[ext_resource type="Script" path="res://components/debug/debug_ui/scripts/static_info/gpu_name_label.gd" id="5_jnd2u"]
+[ext_resource type="Script" path="res://components/debug/debug_ui/scripts/static_info/graphics_driver_label.gd" id="6_koe7g"]
+[ext_resource type="Script" path="res://components/debug/debug_ui/scripts/dynamic_info/current_tree_label.gd" id="7_b1tl0"]
+[ext_resource type="Script" path="res://components/debug/debug_ui/scripts/static_info/resolution_label.gd" id="7_edb4p"]
+
+[node name="DebugUI" type="HBoxContainer"]
+editor_description = "User interface thats provide info about game, engine and system"
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_udjmc")
+
+[node name="DynamicInfoVBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CurrentFPSLabel" type="Label" parent="DynamicInfoVBox"]
+layout_mode = 2
+label_settings = ExtResource("1_mb4ku")
+script = ExtResource("1_jh2ml")
+
+[node name="TotalFramesLabel" type="Label" parent="DynamicInfoVBox"]
+layout_mode = 2
+label_settings = ExtResource("1_mb4ku")
+script = ExtResource("2_ybne4")
+
+[node name="CurrentDeltaLabel" type="Label" parent="DynamicInfoVBox"]
+layout_mode = 2
+label_settings = ExtResource("1_mb4ku")
+script = ExtResource("3_b4yu7")
+
+[node name="TotalPrimitivesLabel" type="Label" parent="DynamicInfoVBox"]
+layout_mode = 2
+label_settings = ExtResource("1_mb4ku")
+script = ExtResource("4_qpk38")
+
+[node name="CurrentTreeLabel" type="Label" parent="DynamicInfoVBox"]
+layout_mode = 2
+label_settings = ExtResource("1_mb4ku")
+script = ExtResource("7_b1tl0")
+
+[node name="SeparatorControl" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="StaticInfoVBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GameTitleAndVersionLabel" type="Label" parent="StaticInfoVBox"]
+layout_mode = 2
+label_settings = ExtResource("1_mb4ku")
+horizontal_alignment = 2
+script = ExtResource("1_ydlyj")
+
+[node name="EngineVersionLabel" type="Label" parent="StaticInfoVBox"]
+layout_mode = 2
+label_settings = ExtResource("1_mb4ku")
+horizontal_alignment = 2
+script = ExtResource("2_qnhfu")
+
+[node name="CPUNameLabel" type="Label" parent="StaticInfoVBox"]
+layout_mode = 2
+label_settings = ExtResource("1_mb4ku")
+horizontal_alignment = 2
+script = ExtResource("4_r3o6n")
+
+[node name="GPUNameLabel" type="Label" parent="StaticInfoVBox"]
+layout_mode = 2
+label_settings = ExtResource("1_mb4ku")
+horizontal_alignment = 2
+script = ExtResource("5_jnd2u")
+
+[node name="GraphicsDriverLabel" type="Label" parent="StaticInfoVBox"]
+layout_mode = 2
+label_settings = ExtResource("1_mb4ku")
+horizontal_alignment = 2
+script = ExtResource("6_koe7g")
+
+[node name="ResolutionLabel" type="Label" parent="StaticInfoVBox"]
+layout_mode = 2
+label_settings = ExtResource("1_mb4ku")
+horizontal_alignment = 2
+script = ExtResource("7_edb4p")
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
