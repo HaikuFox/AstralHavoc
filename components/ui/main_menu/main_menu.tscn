@@ -1,0 +1,258 @@
+[gd_scene load_steps=6 format=3 uid="uid://dihg3s8sm6lku"]
+
+[ext_resource type="Shader" path="res://assets/shaders/noize.gdshader" id="1_jicpn"]
+[ext_resource type="Shader" path="res://assets/shaders/vignette.gdshader" id="2_ekesx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ueghp"]
+shader = ExtResource("1_jicpn")
+shader_parameter/amount = 40.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w2qxb"]
+shader = ExtResource("2_ekesx")
+shader_parameter/inner_radius = 0.335
+shader_parameter/outer_radius = 0.8
+shader_parameter/vignette_strength = 1.135
+shader_parameter/dither_strength = -0.275
+shader_parameter/vignette_color = null
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e42uy"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.109804, 0.117647, 0.168627, 1)
+
+[node name="BG" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Second" type="ColorRect" parent="BG"]
+clip_children = 2
+custom_minimum_size = Vector2(1152, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -284.253
+offset_right = 576.0
+offset_bottom = 284.253
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1088, 0.119, 0.17, 1)
+
+[node name="Noize" type="ColorRect" parent="BG/Second"]
+material = SubResource("ShaderMaterial_ueghp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.48, 0.48, 0.48, 0)
+
+[node name="Third" type="ColorRect" parent="BG/Second"]
+clip_children = 2
+custom_minimum_size = Vector2(1152, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -284.253
+offset_right = 576.0
+offset_bottom = 284.253
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1088, 0.119, 0.17, 0.768627)
+
+[node name="Label" type="Label" parent="BG/Second"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.5
+offset_right = 218.5
+offset_bottom = 99.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.745098, 0.678431, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "Astral Havoc"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Vignette" type="ColorRect" parent="BG"]
+material = SubResource("ShaderMaterial_w2qxb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Lines" type="Control" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line" type="ColorRect" parent="BG/Lines"]
+custom_minimum_size = Vector2(1000, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -860.0
+offset_top = 221.0
+offset_right = 140.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.904081
+color = Color(1, 0.744, 0.68, 1)
+
+[node name="Line2" type="ColorRect" parent="BG/Lines"]
+custom_minimum_size = Vector2(1000, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = 438.0
+offset_right = 916.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.904081
+color = Color(1, 0.744, 0.68, 1)
+
+[node name="Line3" type="ColorRect" parent="BG/Lines"]
+custom_minimum_size = Vector2(1000, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -665.0
+offset_top = 284.0
+offset_right = 335.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.904081
+color = Color(1, 0.744, 0.68, 1)
+
+[node name="Line5" type="ColorRect" parent="BG/Lines"]
+custom_minimum_size = Vector2(1000, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 838.0
+offset_top = 483.0
+offset_right = 1838.0
+offset_bottom = 487.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.01062
+color = Color(1, 0.744, 0.68, 1)
+
+[node name="Line4" type="ColorRect" parent="BG/Lines"]
+custom_minimum_size = Vector2(1000, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 44.0
+offset_top = 410.0
+offset_right = 1044.0
+offset_bottom = 416.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.1101
+color = Color(1, 0.744, 0.68, 1)
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -50.5
+offset_right = 41.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="StartButton" type="Button" parent="ButtonsVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.56, 0.41664, 0.3808, 1)
+theme_override_colors/font_pressed_color = Color(0.28, 0.20832, 0.1904, 1)
+theme_override_colors/font_focus_color = Color(1, 0.745098, 0.678431, 1)
+theme_override_colors/font_color = Color(1, 0.745098, 0.678431, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e42uy")
+text = "START"
+flat = true
+
+[node name="SettingsButton" type="Button" parent="ButtonsVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.56, 0.41664, 0.3808, 1)
+theme_override_colors/font_pressed_color = Color(0.28, 0.20832, 0.1904, 1)
+theme_override_colors/font_focus_color = Color(1, 0.745098, 0.678431, 1)
+theme_override_colors/font_color = Color(1, 0.745098, 0.678431, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e42uy")
+text = "SETTINGS"
+flat = true
+
+[node name="QuitButton" type="Button" parent="ButtonsVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.56, 0.41664, 0.3808, 1)
+theme_override_colors/font_pressed_color = Color(0.28, 0.20832, 0.1904, 1)
+theme_override_colors/font_focus_color = Color(1, 0.745098, 0.678431, 1)
+theme_override_colors/font_color = Color(1, 0.745098, 0.678431, 1)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/focus = SubResource("StyleBoxEmpty_e42uy")
+text = "QUIT"
+flat = true

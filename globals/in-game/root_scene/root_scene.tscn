@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgfc5hfjolyrb"]
+
+[ext_resource type="Script" path="res://globals/in-game/root_scene/root_scene.gd" id="1_hyc8t"]
+
+[node name="RootScene" type="Node"]
+script = ExtResource("1_hyc8t")

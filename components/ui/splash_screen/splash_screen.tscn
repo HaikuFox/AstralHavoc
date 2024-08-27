@@ -1,0 +1,211 @@
+[gd_scene load_steps=6 format=3 uid="uid://bs1jtiqolwbyj"]
+
+[ext_resource type="Shader" path="res://assets/shaders/vignette.gdshader" id="1_m1h5w"]
+[ext_resource type="Script" path="res://components/ui/splash_screen/splash_screen.gd" id="1_nwcow"]
+[ext_resource type="Shader" path="res://assets/shaders/noize.gdshader" id="2_3obw4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yw62i"]
+shader = ExtResource("2_3obw4")
+shader_parameter/amount = 40.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1f2wy"]
+shader = ExtResource("1_m1h5w")
+shader_parameter/inner_radius = 0.335
+shader_parameter/outer_radius = 0.8
+shader_parameter/vignette_strength = 1.135
+shader_parameter/dither_strength = -0.275
+shader_parameter/vignette_color = null
+
+[node name="SplashScreen" type="Control"]
+z_index = 65
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nwcow")
+
+[node name="MainBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.109804, 0.117647, 0.168627, 1)
+
+[node name="BG" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Second" type="ColorRect" parent="BG"]
+clip_children = 2
+custom_minimum_size = Vector2(1152, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -284.253
+offset_right = 576.0
+offset_bottom = 284.253
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1088, 0.119, 0.17, 1)
+
+[node name="Noize" type="ColorRect" parent="BG/Second"]
+material = SubResource("ShaderMaterial_yw62i")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.48, 0.48, 0.48, 0)
+
+[node name="Third" type="ColorRect" parent="BG"]
+clip_children = 2
+custom_minimum_size = Vector2(1152, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -284.253
+offset_right = 576.0
+offset_bottom = 284.253
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1088, 0.119, 0.17, 0.768627)
+
+[node name="Vignette" type="ColorRect" parent="BG"]
+material = SubResource("ShaderMaterial_1f2wy")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Lines" type="Control" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line" type="ColorRect" parent="BG/Lines"]
+custom_minimum_size = Vector2(1000, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -676.0
+offset_top = 314.0
+offset_right = 324.0
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.904081
+color = Color(1, 0.744, 0.68, 1)
+
+[node name="Line2" type="ColorRect" parent="BG/Lines"]
+custom_minimum_size = Vector2(1000, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = 438.0
+offset_right = 916.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.904081
+color = Color(1, 0.744, 0.68, 1)
+
+[node name="Line3" type="ColorRect" parent="BG/Lines"]
+custom_minimum_size = Vector2(1000, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.42
+offset_top = 347.0
+offset_right = 917.58
+offset_bottom = 351.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.904081
+color = Color(1, 0.744, 0.68, 1)
+
+[node name="Line5" type="ColorRect" parent="BG/Lines"]
+custom_minimum_size = Vector2(1000, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 566.0
+offset_top = 483.0
+offset_right = 1566.0
+offset_bottom = 487.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.01062
+color = Color(1, 0.744, 0.68, 1)
+
+[node name="Line4" type="ColorRect" parent="BG/Lines"]
+custom_minimum_size = Vector2(1000, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = 581.0
+offset_right = 824.0
+offset_bottom = 587.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.1101
+color = Color(1, 0.744, 0.68, 1)
+
+[node name="Label" type="Label" parent="BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -27.5
+offset_right = 54.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.745098, 0.678431, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "haiku"
+horizontal_alignment = 1
+vertical_alignment = 1
